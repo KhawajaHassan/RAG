@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+aiosqlite
+chromadb
+openai
+langchain-text-splitters
+networkx
+python-igraph
+leidenalg
+scikit-learn
+rouge-score
+spacy
+pydantic-settings
+python-multipart
+ollama
+

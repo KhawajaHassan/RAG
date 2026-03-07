@@ -1,0 +1,28 @@
+PUBLIC-DOMAIN DEMO TEXT (MIXED SOURCES)
+
+This file is intentionally a small, public-domain-style corpus for demonstrating multi-document reasoning.
+You can replace it with your own dataset.
+
+Document A: Scientific method (summary)
+The scientific method is an iterative process for building reliable knowledge about the world. It commonly
+includes observation, question formulation, hypothesis generation, experimentation, measurement, analysis,
+and communication of results. Replication and peer review help reduce the risk of error, bias, and
+overfitting to a single observation.
+
+Document B: Industrial organization (summary)
+Organizations coordinate people, resources, and processes to achieve goals. They often trade off speed vs
+quality, local optimization vs global optimization, and exploration vs exploitation. Governance structures,
+incentives, and information flow influence outcomes. Systems can fail when feedback loops are delayed,
+metrics are misaligned, or decision-makers lack the necessary context.
+
+Document C: Graphs and networks (summary)
+Graphs model entities (nodes) and relationships (edges). Centrality measures identify influential nodes.
+Community detection partitions a graph into groups of nodes with dense connections within groups and sparse
+connections between groups. Multilevel clustering can reveal coarse-to-fine structure.
+
+Document D: Retrieval-augmented generation (summary)
+RAG systems combine retrieval (finding relevant context) with generation (producing an answer). Vector
+retrieval uses embeddings to match semantic similarity. Graph-based retrieval can support reasoning over
+relationships, offering local neighborhood context or global community summaries. RAG quality depends on
+chunking, coverage, and how the model uses citations and uncertainty.
+
