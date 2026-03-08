@@ -303,14 +303,11 @@ async def _store_communities(job_id: str, summaries: List[Dict[str, Any]], membe
 
         # Stats: count communities at C0 by default
         c0_ids = set(membership.get(0, {}).values())
+        row_e = await (await db.execute("SELECT COUNT(*) FROM entities WHERE job_id = ?", (job_id,))).fetchone()
+        row_r = await (await db.execute("SELECT COUNT(*) FROM relationships WHERE job_id = ?", (job_id,))).fetchone()
         await db.execute(
             "INSERT OR REPLACE INTO graph_stats (job_id, entity_count, edge_count, community_count) VALUES (?, ?, ?, ?)",
-            (
-                job_id,
-                (await (await db.execute("SELECT COUNT(*) AS c FROM entities WHERE job_id = ?", (job_id,))).fetchone())["c"],
-                (await (await db.execute("SELECT COUNT(*) AS c FROM relationships WHERE job_id = ?", (job_id,))).fetchone())["c"],
-                len(c0_ids),
-            ),
+            (job_id, row_e[0], row_r[0], len(c0_ids)),
         )
         await db.commit()
 
@@ -455,4 +452,3 @@ async def run_indexing_job(*, job_id: str, raw_text: str) -> None:
 
     await _store_communities(job_id, summaries, membership)
     await update_job_status(job_id, status="completed", current_step="Done", progress=1.0)
-
